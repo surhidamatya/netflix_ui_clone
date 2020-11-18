@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_ui_clone/data/data.dart';
 import 'package:netflix_ui_clone/widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -38,6 +39,14 @@ _scrollController = ScrollController()..addListener(() {
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 50.0),
         child: CustomAppBar(scrollOffset: _scrollOffset,),
+      ),
+      body: CustomScrollView(
+        controller: _scrollController,
+        slivers: [
+          SliverToBoxAdapter(
+            child: ContentHeader(featuredContent: sintelContent)
+          )
+        ],
       ),
     );
   }
